@@ -9,79 +9,79 @@ const PHOTOS: {
 }[] = [
   {
     imageUrl:
-      "https://c.animaapp.com/mqq6fwidBfIC09/img/uploaded-asset-1782184656287-0.png",
+      "assets/8F435077-8A79-4550-9B0F-D8CE7C5DED14.png",
     imageAlt:
       "Completed reroof with architectural shingles and green surroundings",
   },
   {
     imageUrl:
-      "https://c.animaapp.com/mqq6fwidBfIC09/img/uploaded-asset-1782184656322-1.jpeg",
+      "assets/BCB67BC7-0813-42D2-B18E-988C3E43A100.jpeg",
     imageAlt: "Aerial view of completed Jacksonville reroof with pine trees",
   },
   {
     imageUrl:
-      "https://c.animaapp.com/mqq6fwidBfIC09/img/uploaded-asset-1782184656374-2.png",
+      "assets/3E2A9698-0E5D-44DC-9BB5-B7137B4EB485.png",
     imageAlt: "Completed shingle roof replacement on residential home",
   },
   {
     imageUrl:
-      "https://c.animaapp.com/mqq6fwidBfIC09/img/uploaded-asset-1782184752468-0.png",
+      "assets/A9134DD1-B594-46CD-B22B-66A655384D25.png",
     imageAlt:
       "Front view of completed roof replacement on Florida home with dark architectural shingles",
   },
   {
     imageUrl:
-      "https://c.animaapp.com/mqq6fwidBfIC09/img/uploaded-asset-1782184752477-1.jpeg",
+      "assets/D0893DAE-4C94-4508-AE66-52A587723F92.jpeg",
     imageAlt:
       "Aerial view of completed shingle reroof with ridge vents and lush tree backdrop",
   },
   {
     imageUrl:
-      "https://c.animaapp.com/mqq6fwidBfIC09/img/uploaded-asset-1782184752486-2.jpeg",
+      "assets/39CFCCC0-7049-4929-A91F-410944CC5AE0.jpeg",
     imageAlt: "Newly installed skylights on a clean gray shingle roof",
   },
   {
     imageUrl:
-      "https://c.animaapp.com/mqq6fwidBfIC09/img/uploaded-asset-1782184834565-0.jpeg",
+      "assets/244219E9-59AB-4DCC-840B-6FE709C1D282.jpeg",
     imageAlt:
       "Aerial view of completed gray shingle roof with skylights and oak trees",
   },
   {
     imageUrl:
-      "https://c.animaapp.com/mqq6fwidBfIC09/img/uploaded-asset-1782184834573-1.jpeg",
+      "assets/9CA7BA07-130E-4440-AF93-E91390F44A48.jpeg",
     imageAlt:
       "Close-up of newly installed skylights on gray architectural shingle roof",
   },
   {
     imageUrl:
-      "https://c.animaapp.com/mqq6fwidBfIC09/img/uploaded-asset-1782185565255-0.jpeg",
+      "assets/2DD39033-03F0-4A1D-ABCD-4C9F294B81B6.jpeg",
     imageAlt:
       "Aerial view of completed hip roof with waterfront pool and canal backdrop",
     objectFit: "contain",
   },
   {
     imageUrl:
-      "https://c.animaapp.com/mqq6fwidBfIC09/assets/6A9DAFA8-9D23-4E0C-A04E-0859A4D03E51.png",
+      "assets/6A9DAFA8-9D23-4E0C-A04E-0859A4D03E51.png",
     imageAlt: "Roof project showing precise valley installation",
   },
   {
     imageUrl:
-      "https://c.animaapp.com/mqq6fwidBfIC09/assets/3E2A9698-0E5D-44DC-9BB5-B7137B4EB485.png",
+      "assets/3E2A9698-0E5D-44DC-9BB5-B7137B4EB485.png",
     imageAlt: "Roofing craftsmanship detail by RidgeCrest",
   },
   {
     imageUrl:
-      "https://c.animaapp.com/mqq6fwidBfIC09/assets/05A848A9-4E8E-4EC7-9BE6-F63CE2186AFB.png",
+      "assets/05A848A9-4E8E-4EC7-9BE6-F63CE2186AFB.png",
     imageAlt: "Roof ridge line and shingle alignment detail",
   },
   {
     imageUrl:
-      "https://c.animaapp.com/mqq6fwidBfIC09/assets/03526555-EF96-416E-AD5C-A0E29060D210.png",
+      "assets/03526555-EF96-416E-AD5C-A0E29060D210.png",
     imageAlt: "Roof project progress image RidgeCrest Roofing",
   },
   {
     imageUrl:
-      "https://c.animaapp.com/mqq6fwidBfIC09/assets/9CA7BA07-130E-4440-AF93-E91390F44A48.jpeg",
+      "assets/9CA7BA07-130E-4440-AF93-E91390F44A48.jpeg",
     imageAlt: "Residential roof before final cleanup",
   },
 ];

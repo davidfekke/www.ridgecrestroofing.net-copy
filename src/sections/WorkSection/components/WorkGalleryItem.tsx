@@ -9,7 +9,7 @@ export const WorkGalleryItem = (props: WorkGalleryItemProps) => {
       <img
         src={props.imageUrl}
         alt={props.imageAlt}
-        className="w-full h-full object-contain"
+        className="w-full h-full object-cover"
       />
     </figure>
   );
