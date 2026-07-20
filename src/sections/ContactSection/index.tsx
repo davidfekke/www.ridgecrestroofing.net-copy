@@ -117,7 +117,7 @@ export const ContactSection = () => {
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4" netlify>
             <div>
               <label className="block text-white/70 text-sm mb-1.5 font-medium">
                 Full Name

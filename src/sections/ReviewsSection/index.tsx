@@ -5,11 +5,6 @@ import { ReviewCard } from "@/sections/ReviewsSection/components/ReviewCard";
 const reviews = [
   {
     review:
-      "Chris was outstanding to work with. My home required special handling, and Chris expertly coordinated both the replacement of my existing roof and the new gabled roof for my sunroom. He was thorough, responsive, and proactive, meeting directly with my insurance company and providing all required documentation to ensure coverage went smoothly. I highly recommend Chris for his professionalism, attention to detail, and excellent project management.",
-    author: "",
-  },
-  {
-    review:
       "We worked with Cole for a reroof on our new home. He helped schedule us quickly as we needed a new roof for insurance to cover us. He communicated well, was efficient, and did a great job!",
     author: "",
   },
