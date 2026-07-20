@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useMutation } from "@animaapp/playground-react-sdk";
 import emailjs from "@emailjs/browser";
 
 // ─── EmailJS config ───────────────────────────────────────────────
@@ -22,14 +21,36 @@ export const ContactSection = () => {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const { create, isPending, error } = useMutation("InspectionRequest");
+  const encodeFormData = (data: Record<string, string>) =>
+    new URLSearchParams(data).toString();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!name.trim() || !address.trim() || !email.trim()) return;
+
+    setSubmitError(null);
+    setIsSubmitting(true);
+
     try {
-      await create({ name, address, email, phone: phone.trim() });
+      const netlifyResponse = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encodeFormData({
+          "form-name": "inspection-request",
+          name: name.trim(),
+          address: address.trim(),
+          email: email.trim(),
+          phone: phone.trim(),
+          message: message.trim(),
+        }),
+      });
+
+      if (!netlifyResponse.ok) {
+        throw new Error(`Netlify form submit failed: ${netlifyResponse.status}`);
+      }
 
       // Send email notification if EmailJS keys are configured
       if (
@@ -65,6 +86,9 @@ export const ContactSection = () => {
       setMessage("");
     } catch (err) {
       console.error("Failed to submit inspection request:", err);
+      setSubmitError("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -117,19 +141,33 @@ export const ContactSection = () => {
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4" netlify>
+          <form
+            name="inspection-request"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-4"
+          >
+            <input type="hidden" name="form-name" value="inspection-request" />
+            <p className="hidden">
+              <label>
+                Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
+              </label>
+            </p>
             <div>
               <label className="block text-white/70 text-sm mb-1.5 font-medium">
                 Full Name
               </label>
               <input
                 type="text"
+                name="name"
                 className={inputClass}
                 placeholder="Jane Smith"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
-                disabled={isPending}
+                disabled={isSubmitting}
               />
             </div>
             <div>
@@ -138,12 +176,13 @@ export const ContactSection = () => {
               </label>
               <input
                 type="text"
+                name="address"
                 className={inputClass}
                 placeholder="123 Main St, Jacksonville, FL"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
                 required
-                disabled={isPending}
+                disabled={isSubmitting}
               />
             </div>
             <div>
@@ -152,12 +191,13 @@ export const ContactSection = () => {
               </label>
               <input
                 type="email"
+                name="email"
                 className={inputClass}
                 placeholder="you@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                disabled={isPending}
+                disabled={isSubmitting}
               />
             </div>
             <div>
@@ -166,11 +206,12 @@ export const ContactSection = () => {
               </label>
               <input
                 type="tel"
+                name="phone"
                 className={inputClass}
                 placeholder="(555) 123-4567"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                disabled={isPending}
+                disabled={isSubmitting}
               />
             </div>
             <div>
@@ -178,27 +219,28 @@ export const ContactSection = () => {
                 Message
               </label>
               <textarea
+                name="message"
                 className={`${inputClass} resize-none`}
                 placeholder="Tell us a little about your roofing needs — age of roof, visible damage, insurance claim, etc."
                 rows={4}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                disabled={isPending}
+                disabled={isSubmitting}
               />
             </div>
 
-            {error && (
+            {submitError && (
               <p className="text-red-400 text-sm bg-red-400/10 border border-red-400/20 rounded-xl px-4 py-3">
-                Something went wrong. Please try again.
+                {submitError}
               </p>
             )}
 
             <button
               type="submit"
-              disabled={isPending}
+              disabled={isSubmitting}
               className="mt-2 font-bold items-center bg-[linear-gradient(145deg,rgb(211,92,47),rgb(255,143,88))] shadow-[rgba(211,92,47,0.3)_0px_12px_24px_0px] box-border caret-transparent gap-x-2 flex justify-center outline-[3px] w-full border px-[19.2px] py-[14px] rounded-[999px] border-solid border-transparent disabled:opacity-60 disabled:cursor-not-allowed transition text-[15px]"
             >
-              {isPending ? "Submitting..." : "Book Free Inspection"}
+              {isSubmitting ? "Submitting..." : "Book Free Inspection"}
             </button>
           </form>
         )}
