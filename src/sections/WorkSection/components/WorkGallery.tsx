@@ -84,6 +84,26 @@ const PHOTOS: {
       "assets/9CA7BA07-130E-4440-AF93-E91390F44A48.jpeg",
     imageAlt: "Residential roof before final cleanup",
   },
+  {
+    imageUrl:
+      "assets/141222E0-0213-4A29-907E-2E8087817857.jpeg",
+    imageAlt: "Residential roof before final cleanup",
+  },
+  {
+    imageUrl:
+      "assets/82D5E5F4-F7D2-4FFA-B939-8D1BECC70A01.jpeg",
+    imageAlt: "Residential roof before final cleanup",
+  },
+  {
+    imageUrl:
+      "assets/9CA7BA07-130E-4440-AF93-E91390F44A48.jpeg",
+    imageAlt: "Residential roof before final cleanup",
+  },
+  {
+    imageUrl:
+      "assets/E96E3679-DFD4-4625-AA6F-9C0606B2B68C.jpeg",
+    imageAlt: "Residential roof before final cleanup",
+  }
 ];
 
 export const WorkGallery = () => {
